@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import { WorkoutRoutes } from "./routes/workouts.js";
+import { userRouter } from "./routes/user.js";
 
 dotenv.config();
 
@@ -35,5 +36,8 @@ app.use((req, res, next) => {
   next();
 });
 
-//Route
+//Workout Route
 app.use("/api/workouts", WorkoutRoutes);
+
+//User Route
+app.use("/api/user", userRouter);
