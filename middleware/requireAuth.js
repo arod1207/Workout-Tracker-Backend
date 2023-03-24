@@ -4,7 +4,6 @@ import { User } from "../models/userModel.js";
 const requireAuth = async (req, res, next) => {
   //Verify auth//
   const { authorization } = req.headers;
-  console.log("auth", authorization);
 
   //Check for token//
   if (!authorization) {
@@ -12,7 +11,6 @@ const requireAuth = async (req, res, next) => {
   }
 
   const token = authorization.split(" ")[1];
-  console.log("token", token);
 
   try {
     const id = jwt.verify(token, process.env.SECRET);
